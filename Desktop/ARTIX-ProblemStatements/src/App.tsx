@@ -254,12 +254,6 @@ function App() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-slideUp">
-            <h1 className="text-4xl sm:text-5xl md:text-7xl font-black mb-4 md:mb-6 text-center">
-              <span className="bg-gradient-to-r from-blue-600 via-cyan-600 to-green-600 bg-clip-text text-transparent block">
-                Home
-              </span>
-            </h1>
-            
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
               81 cutting-edge challenges across 14 domains. Build innovative agent-based solutions and transform ideas into reality.
             </p>
