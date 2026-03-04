@@ -254,6 +254,9 @@ function App() {
         
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-slideUp">
+            <p className="text-sm sm:text-base md:text-lg text-blue-600 font-semibold mb-4 md:mb-6 px-2">
+              IOT-esSENCE presents..
+            </p>
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
               81 cutting-edge challenges across 14 domains. Build innovative agent-based solutions and transform ideas into reality.
             </p>
@@ -291,7 +294,6 @@ function App() {
             {[
               { icon: Trophy, value: '81', label: 'Challenges', color: 'from-blue-500 to-blue-600' },
               { icon: Filter, value: '14', label: 'Domains', color: 'from-cyan-500 to-cyan-600' },
-              { icon: Sparkles, value: 'Innovation', label: 'Event', color: 'from-green-500 to-green-600' },
               { icon: Users, value: '3', label: 'Team Size', color: 'from-purple-500 to-purple-600' }
             ].map((stat, index) => (
               <div
