@@ -186,11 +186,11 @@ function App() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {['Hero', 'Problems'].map((item) => (
+              {['Home', 'Problems'].map((item) => (
                 <button
                   key={item}
                   onClick={() => {
-                    const element = document.getElementById(item.toLowerCase());
+                    const element = document.getElementById(item === 'Home' ? 'hero' : item.toLowerCase());
                     element?.scrollIntoView({ behavior: 'smooth' });
                   }}
                   className={`text-sm font-medium transition-colors ${
@@ -224,11 +224,11 @@ function App() {
         {mobileMenuOpen && (
           <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200">
             <div className="px-4 py-2 space-y-1">
-              {['Hero', 'Problems'].map((item) => (
+              {['Home', 'Problems'].map((item) => (
                 <button
                   key={item}
                   onClick={() => {
-                    const element = document.getElementById(item.toLowerCase());
+                    const element = document.getElementById(item === 'Home' ? 'hero' : item.toLowerCase());
                     element?.scrollIntoView({ behavior: 'smooth' });
                     setMobileMenuOpen(false);
                   }}
@@ -261,7 +261,7 @@ function App() {
             </h1>
             
             <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
-              81 cutting-edge challenges across 14 domains. Build innovative agent-based solutions and transform ideas into reality in 24 hours.
+              81 cutting-edge challenges across 14 domains. Build innovative agent-based solutions and transform ideas into reality.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-3 justify-center mb-8 md:mb-12 px-2">
@@ -297,7 +297,7 @@ function App() {
             {[
               { icon: Trophy, value: '81', label: 'Challenges', color: 'from-blue-500 to-blue-600' },
               { icon: Filter, value: '14', label: 'Domains', color: 'from-cyan-500 to-cyan-600' },
-              { icon: Clock, value: '24h', label: 'Duration', color: 'from-green-500 to-green-600' },
+              { icon: Sparkles, value: 'Innovation', label: 'Event', color: 'from-green-500 to-green-600' },
               { icon: Users, value: '3', label: 'Team Size', color: 'from-purple-500 to-purple-600' }
             ].map((stat, index) => (
               <div
@@ -430,7 +430,7 @@ function App() {
                 <ul className="space-y-2 text-sm text-gray-400">
                   <li>81 Problem Statements</li>
                   <li>14 Technical Domains</li>
-                  <li>24-Hour Hackathon</li>
+                  <li>Innovation Challenge Event</li>
                   <li>3 Members per Team</li>
                 </ul>
               </div>

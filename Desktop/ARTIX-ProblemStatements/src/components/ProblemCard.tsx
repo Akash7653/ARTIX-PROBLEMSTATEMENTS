@@ -1,4 +1,4 @@
-import { Sparkles, Clock, Users, ArrowRight, Eye } from 'lucide-react';
+import { Sparkles, Users, ArrowRight, Eye } from 'lucide-react';
 
 interface ProblemCardProps {
   id: number;
@@ -84,8 +84,8 @@ export function ProblemCard({ id, domain, title, description, skills, isInternsh
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             <div className="flex items-center gap-3 text-xs text-gray-500">
               <div className="flex items-center gap-1">
-                <Clock className="w-3 h-3" />
-                <span>24h Challenge</span>
+                <Sparkles className="w-3 h-3" />
+                <span>Innovation Challenge</span>
               </div>
               <div className="flex items-center gap-1">
                 <Users className="w-3 h-3" />
