@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect } from 'react';
-import { Search, Filter, Zap, Users, Clock, Trophy, Star, ChevronDown, Menu, X, ArrowRight, Sparkles, Target, Lightbulb, Rocket } from 'lucide-react';
+import { Search, Filter, Zap, Users, Clock, Trophy, Star, ChevronDown, Menu, X, ArrowRight, Sparkles, Target, Lightbulb, Rocket, Moon, Sun } from 'lucide-react';
 import { ProblemCard } from './components/ProblemCard';
 import { ProblemModal } from './components/ProblemModal';
 import { problemStatements } from './data/problems';
@@ -87,6 +87,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedProblem, setSelectedProblem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
     // Simulate loading for better UX
@@ -170,11 +171,11 @@ function App() {
 
   return (
     <>
-      <div className="min-h-screen bg-gradient-to-br from-gray-50 via-blue-50 to-green-50">
-        <div className="absolute inset-0 bg-grid-pattern opacity-[0.02]" />
+      <div className={`min-h-screen bg-gradient-to-br ${darkMode ? 'from-gray-900 via-gray-800 to-gray-900 text-gray-100' : 'from-gray-50 via-blue-50 to-green-50'}`}>
+        <div className={`absolute inset-0 bg-grid-pattern ${darkMode ? 'opacity-[0.05]' : 'opacity-[0.02]'}`} />
 
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 glass-morphism border-b border-white/20">
+      <nav className={`fixed top-0 left-0 right-0 z-50 glass-morphism border-b ${darkMode ? 'border-gray-700 bg-gray-900/95' : 'border-white/20 bg-white/80'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center space-x-2">
@@ -211,18 +212,26 @@ function App() {
             </div>
 
             {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors"
-            >
-              {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-            </button>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className={`p-2 rounded-lg transition-colors ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-yellow-400' : 'hover:bg-gray-100 text-gray-600'}`}
+              >
+                {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className={`p-2 rounded-lg transition-colors ${darkMode ? 'hover:bg-gray-700' : 'hover:bg-gray-100'}`}
+              >
+                {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-xl border-t border-gray-200">
+          <div className={`md:hidden backdrop-blur-xl border-t ${darkMode ? 'bg-gray-800/95 border-gray-700' : 'bg-white/95 border-gray-200'}`}>
             <div className="px-4 py-2 space-y-1">
               {['Home', 'Problems'].map((item) => (
                 <button
@@ -232,7 +241,7 @@ function App() {
                     element?.scrollIntoView({ behavior: 'smooth' });
                     setMobileMenuOpen(false);
                   }}
-                  className="block w-full text-left px-3 py-2 rounded-lg text-sm font-medium text-gray-600 hover:text-gray-900 hover:bg-gray-50 transition-colors"
+                  className={`block w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-colors ${darkMode ? 'text-gray-300 hover:text-white hover:bg-gray-700' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'}`}
                 >
                   {item}
                 </button>
@@ -257,7 +266,7 @@ function App() {
             <p className="text-3xl sm:text-4xl md:text-6xl font-black mb-6 md:mb-8 px-2 bg-gradient-to-r from-purple-600 via-green-600 to-pink-600 bg-clip-text text-transparent">
               IOT-esSENCE Presents
             </p>
-            <p className="text-lg sm:text-xl md:text-2xl text-gray-600 mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2">
+            <p className={`text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 max-w-3xl mx-auto leading-relaxed px-2 ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               81 cutting-edge challenges across 14 domains. Build innovative agent-based solutions and transform ideas into reality.
             </p>
             
@@ -315,25 +324,25 @@ function App() {
       </section>
 
       {/* Problems Section */}
-      <section id="problems" className="py-16 md:py-24 bg-white/50">
+      <section id="problems" className={`py-16 md:py-24 ${darkMode ? 'bg-gray-800/50' : 'bg-white/50'}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+            <h2 className={`text-4xl md:text-5xl font-black mb-4 ${darkMode ? 'text-white' : 'text-gray-900'}`}>
               Problem <span className="gradient-text">Statements</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className={`text-lg max-w-3xl mx-auto ${darkMode ? 'text-gray-300' : 'text-gray-600'}`}>
               Explore our comprehensive collection of challenges across various domains
             </p>
           </div>
           <div className="mb-8 space-y-4 animate-fadeIn">
             <div className="relative">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <Search className={`absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 ${darkMode ? 'text-gray-500' : 'text-gray-400'}`} />
               <input
                 type="text"
                 placeholder="Search problem statements..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 rounded-xl border border-gray-200 focus:border-blue-400 focus:ring-4 focus:ring-blue-100 outline-none transition-all duration-300 bg-white shadow-sm text-gray-900 placeholder-gray-400"
+                className={`w-full pl-12 pr-4 py-4 rounded-xl border outline-none transition-all duration-300 shadow-sm placeholder-gray-400 ${darkMode ? 'bg-gray-700 border-gray-600 text-white focus:border-blue-500 focus:ring-4 focus:ring-blue-900' : 'bg-white border-gray-200 text-gray-900 focus:border-blue-400 focus:ring-4 focus:ring-blue-100'}`}
               />
             </div>
 
@@ -353,7 +362,7 @@ function App() {
                     className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
                       selectedDomain === domain
                         ? 'bg-blue-500 text-white shadow-md'
-                        : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                        : darkMode ? 'bg-gray-700 text-gray-200 hover:bg-gray-600' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                     }`}
                   >
                     {domain} ({count})
@@ -385,6 +394,7 @@ function App() {
                     skills={problem.skills}
                     isInternship={problem.is_internship}
                     onClick={() => handleProblemClick(problem.id)}
+                    darkMode={darkMode}
                   />
                 </div>
               ))}
