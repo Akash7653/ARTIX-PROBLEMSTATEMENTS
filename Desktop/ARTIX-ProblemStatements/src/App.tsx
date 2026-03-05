@@ -155,20 +155,9 @@ function App() {
     return (
       <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
         <div className="text-center">
-          <div className="animate-bounce-in mb-8">
-            <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-600 to-green-600 flex items-center justify-center mx-auto shadow-lg shadow-blue-600/50">
-              <Zap className="w-10 h-10 text-white" />
-            </div>
-          </div>
-          <div className="space-y-4">
-            <h2 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-green-400 bg-clip-text text-transparent animate-pulse">
-              ARTIX-2026
-            </h2>
-            <p className="text-gray-400 text-sm">Loading problem statements...</p>
-            <div className="pt-4 flex justify-center gap-1">
-              <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: '0s' }}></div>
-              <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-              <div className="w-2 h-2 rounded-full bg-blue-600 animate-bounce" style={{ animationDelay: '0.4s' }}></div>
+          <div className="animate-bounce-in">
+            <div className="w-24 h-24 rounded-full bg-gradient-to-r from-blue-600 to-green-600 flex items-center justify-center mx-auto shadow-lg shadow-blue-600/50">
+              <span className="text-5xl font-black text-white">A</span>
             </div>
           </div>
         </div>
