@@ -87,7 +87,7 @@ function App() {
   const [activeSection, setActiveSection] = useState('hero');
   const [selectedProblem, setSelectedProblem] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   useEffect(() => {
     // Simulate loading for better UX
