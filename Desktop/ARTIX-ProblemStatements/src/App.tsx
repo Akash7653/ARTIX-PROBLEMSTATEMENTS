@@ -197,7 +197,7 @@ function App() {
                   className={`text-sm font-medium transition-colors ${
                     activeSection === item.toLowerCase()
                       ? 'text-blue-600'
-                      : 'text-gray-600 hover:text-gray-900'
+                      : darkMode ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
                   }`}
                 >
                   {item}
@@ -209,13 +209,19 @@ function App() {
               >
                 Register Now
               </button>
+              <button
+                onClick={() => setDarkMode(!darkMode)}
+                className={`p-2 transition-colors ${darkMode ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-600 hover:text-gray-900'}`}
+              >
+                {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+              </button>
             </div>
 
             {/* Mobile menu button */}
-            <div className="flex items-center gap-2">
+            <div className="md:hidden flex items-center gap-2">
               <button
                 onClick={() => setDarkMode(!darkMode)}
-                className={`p-2 rounded-lg transition-colors ${darkMode ? 'bg-gray-700 hover:bg-gray-600 text-yellow-400' : 'hover:bg-gray-100 text-gray-600'}`}
+                className={`p-2 transition-colors ${darkMode ? 'text-yellow-400 hover:text-yellow-300' : 'text-gray-600 hover:text-gray-900'}`}
               >
                 {darkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
               </button>
